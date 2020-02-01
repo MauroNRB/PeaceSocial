@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        <?php include('../base/cabecalho.php')?>
+        <?php include('../base/header.php') ?>
         <title>Cadastro - Peace Social</title>
     </head>
 
@@ -15,8 +15,8 @@
                 <p>Login</p>
                 <input type="text" name="login" id="login" placeholder="Login">
                 <p>Senha: </p>
-                <input type="password" name="senha" id="senha" placeholder="Senha">
-                <input type="submit" value="Cadastrar" id="cadastrar" name="cadastrar">
+                <input type="password" name="password" id="password" placeholder="Senha">
+                <input type="submit" value="Cadastrar" id="submit" name="submit">
             </form>
         </div>
     </body>

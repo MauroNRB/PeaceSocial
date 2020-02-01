@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Bundle\Model\Database\Database;
+namespace app\Bundle\Model\Database;
 
 class Database
 {
@@ -12,13 +12,28 @@ class Database
         return $connect;
     }
 
-    function select($query)
+    function queryBuilder($queryBuilder)
     {
-        $queryBuilder = $query;
+        $connect = $this->connectDatabase();
+        $select = mysql_query($queryBuilder);
+
+        return $select;
+    }
+
+    function arrSelect($queryBuilder)
+    {
         $connect = $this->connectDatabase();
         $select = mysql_query($queryBuilder,$connect);
         $arrQuery = mysql_fetch_array($select);
 
         return $arrQuery;
+    }
+
+    function queryBuilderInsert($queryBuilder)
+    {
+        $connect = $this->connectDatabase();
+        $insert = mysql_query($queryBuilder, $connect);
+
+        return $insert;
     }
 }
