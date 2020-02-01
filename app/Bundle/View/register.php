@@ -1,3 +1,4 @@
+<?php include('base/isLogin.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,12 +7,11 @@
     <title>Cadastro - Peace Social</title>
 </head>
 
-<body>
+<body class="login-register">
 <div class="loginbox">
     <img src="img/avatar.png" class="avatar">
     <h1>Cadastro</h1>
-    <!--            <form method="POST" action="cadastro.php">-->
-    <form>
+    <form method="POST" action="../Controller/registerController.php">
         <p>Login</p>
         <input type="text" name="login" id="login" placeholder="Login">
         <p>Senha: </p>
@@ -19,6 +19,6 @@
         <input type="submit" value="Cadastrar" id="submit" name="submit">
     </form>
 </div>
-    </body>
+</body>
 
 </html>

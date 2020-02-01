@@ -1,3 +1,5 @@
+<?php include('base/isLogin.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +8,7 @@
     <title>Login - Peace Social</title>
 </head>
 
-<body>
+<body class="login-register">
 <div class="loginbox">
     <img src="img/avatar.png" class="avatar">
     <h1>Login</h1>
@@ -15,7 +17,7 @@
         <input type="text" name="login" id="login" placeholder="Login">
         <p>Senha: </p>
         <input type="password" name="password" id="password" placeholder="Senha">
-        <input type="submit" value="Entrar" id="submit" name="submit">
+        <input class="btn btn-primary" type="submit" value="Entrar" name="submit">
         <br>
     </form>
     <a href="register.php">Cadastra-se</a>

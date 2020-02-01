@@ -9,9 +9,9 @@ namespace app\Bundle\Controller;
  */
 class Initial
 {
-    function indexController()
+    public function indexController()
     {
-        $loginCookie = $_COOKIE['login'];
+        $loginCookie = $_COOKIE['login'] ?? null;
         if (isset($loginCookie)) {
             header("Location:app/Bundle/View/home.php");
         } else {
@@ -19,10 +19,10 @@ class Initial
         }
     }
 
-    function isLoginController()
+    public function isLoginController()
     {
-        $loginCookie = $_COOKIE['login'];
-        if (!isset($loginCookie)) {
+        $loginCookie = $_COOKIE['login'] ?? null;
+        if (isset($loginCookie)) {
             header("Location:./login.php");
         }
     }

@@ -4,15 +4,15 @@ namespace app\Bundle\Model\Database;
 
 class Database
 {
-    function connectDatabase()
+    public function connectDatabase()
     {
-        $connect = mysql_connect('','', '');
+        $connect = mysql_connect('', '', '');
         $db = mysql_select_db('');
 
         return $connect;
     }
 
-    function queryBuilder($queryBuilder)
+    public function queryBuilder($queryBuilder)
     {
         $connect = $this->connectDatabase();
         $select = mysql_query($queryBuilder);
@@ -20,16 +20,16 @@ class Database
         return $select;
     }
 
-    function arrSelect($queryBuilder)
+    public function arrSelect($queryBuilder)
     {
         $connect = $this->connectDatabase();
-        $select = mysql_query($queryBuilder,$connect);
+        $select = mysql_query($queryBuilder, $connect);
         $arrQuery = mysql_fetch_array($select);
 
         return $arrQuery;
     }
 
-    function queryBuilderInsert($queryBuilder)
+    public function queryBuilderInsert($queryBuilder)
     {
         $connect = $this->connectDatabase();
         $insert = mysql_query($queryBuilder, $connect);
