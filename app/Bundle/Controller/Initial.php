@@ -11,11 +11,19 @@ class Initial
 {
     function indexController()
     {
-        $login_cookie = $_COOKIE['login'];
-        if(isset($login_cookie)) {
-            header("Location:app/Bundle/View/html/home.php");
-        } else{
-            header("Location:app/Bundle/View/html/login.php");
+        $loginCookie = $_COOKIE['login'];
+        if (isset($loginCookie)) {
+            header("Location:app/Bundle/View/home.php");
+        } else {
+            header("Location:app/Bundle/View/login.php");
+        }
+    }
+
+    function isLoginController()
+    {
+        $loginCookie = $_COOKIE['login'];
+        if (!isset($loginCookie)) {
+            header("Location:./login.php");
         }
     }
 }

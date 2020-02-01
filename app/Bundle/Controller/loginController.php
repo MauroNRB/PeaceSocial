@@ -1,5 +1,5 @@
 <?php
-require_once 'app\Bundle\Controller\Initial.php';
+require '../Model/Database/Database.php';
 $database = new \app\Bundle\Model\Database\Database();
 
 $login = $_POST['login'];

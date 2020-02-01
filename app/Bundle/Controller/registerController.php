@@ -1,5 +1,5 @@
 <?php
-require_once 'app\Bundle\Controller\Initial.php';
+require '../Model/Database/Database.php';
 $database = new \app\Bundle\Model\Database\Database();
 
 $login = $_POST['login'];
@@ -13,7 +13,7 @@ if($login == "" || $login == null) {
     echo"
         <script language='javascript' type='text/javascript'>
             alert('O campo login deve ser preenchido');
-            window.location.href='../../View/html/cadastro.php';
+            window.location.href='../View/cadastro.php';
         </script>"
     ;
 } else {
@@ -22,7 +22,7 @@ if($login == "" || $login == null) {
         echo"
             <script language='javascript' type='text/javascript'>
                 alert('Esse login já existe');
-                window.location.href='../../View/html/cadastro.php';
+                window.location.href='../View/cadastro.php';
             </script>"
         ;
         die();
@@ -34,14 +34,14 @@ if($login == "" || $login == null) {
             echo"
                 <script language='javascript' type='text/javascript'>
                     alert('Usuário cadastrado com sucesso!');
-                    window.location.href='../../View/html/login.php'
+                    window.location.href='../View/login.php'
                 </script>"
             ;
         } else {
             echo"
                 <script language='javascript' type='text/javascript'>
                     alert('Não foi possível cadastrar esse usuário');
-                    window.location.href='../../View/html/login.php'
+                    window.location.href='../View/login.php'
                 </script>"
             ;
         }
