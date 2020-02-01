@@ -3,7 +3,6 @@
 namespace app\Bundle\Controller;
 
 /**
- * Class Initial
  * @author Mauro Ribeiro
  * @since 2020-01-31
  */
@@ -11,19 +10,30 @@ class Initial
 {
     public function indexController()
     {
-        $loginCookie = $_COOKIE['login'] ?? null;
-        if (isset($loginCookie)) {
-            header("Location:app/Bundle/View/home.php");
+        $loginSession = $_SESSION['social-login'];
+        $passwordSession = $_SESSION['social-password'];
+
+        if(isset($loginSession) && isset($passwordSession)) {
+            header("Location:/PeaceSocial/app/Bundle/View/home.php");
         } else {
-            header("Location:app/Bundle/View/login.php");
+            header("Location:/PeaceSocial/app/Bundle/View/login.php");
         }
     }
 
     public function isLoginController()
     {
-        $loginCookie = $_COOKIE['login'] ?? null;
-        if (isset($loginCookie)) {
+        $loginSession = isset($_SESSION['social-login']) ? $_SESSION['social-login'] : null;
+        $passwordSession = isset($_SESSION['social-password']) ? $_SESSION['social-password'] : null;
+
+        if(isset($loginSession) && isset($passwordSession)) {
             header("Location:./login.php");
         }
+    }
+
+    public function logOut()
+    {
+        session_unset();
+        session_abort();
+        header("Location:./../login.php");
     }
 }

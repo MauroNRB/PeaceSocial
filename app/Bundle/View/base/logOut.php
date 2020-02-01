@@ -1,6 +1,5 @@
 <?php
+require '../../Controller/Initial.php';
 
-if (isset($_POST['logOut'])) {
-    $loginCookie = $_COOKIE['login'] ?? null;
-    unset($loginCookie);
-}
+$initial = new \app\Bundle\Controller\Initial();
+$initial->logOut();

@@ -6,34 +6,25 @@ class Database
 {
     public function connectDatabase()
     {
-        $connect = mysql_connect('', '', '');
-        $db = mysql_select_db('');
-
+        $connect = mysqli_connect('localhost', 'root', '', 'peace_social');
         return $connect;
     }
 
     public function queryBuilder($queryBuilder)
     {
         $connect = $this->connectDatabase();
-        $select = mysql_query($queryBuilder);
+        $script = mysqli_query($connect, $queryBuilder);
 
-        return $select;
+        return $script;
     }
 
     public function arrSelect($queryBuilder)
     {
         $connect = $this->connectDatabase();
-        $select = mysql_query($queryBuilder, $connect);
-        $arrQuery = mysql_fetch_array($select);
+
+        $select = mysqli_query($connect, $queryBuilder);
+        $arrQuery = mysqli_fetch_array($select);
 
         return $arrQuery;
-    }
-
-    public function queryBuilderInsert($queryBuilder)
-    {
-        $connect = $this->connectDatabase();
-        $insert = mysql_query($queryBuilder, $connect);
-
-        return $insert;
     }
 }

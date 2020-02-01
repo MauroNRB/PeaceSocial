@@ -1,5 +1,3 @@
-<?php include('base/isLogin.php') ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +10,7 @@
 <div class="loginbox">
     <img src="img/avatar.png" class="avatar">
     <h1>Login</h1>
-    <form method="POST" action="../Controller/loginController.php">
+    <form method="POST" action="../Controller/login.php">
         <p>Login</p>
         <input type="text" name="login" id="login" placeholder="Login/E-mail">
         <p>Senha: </p>
