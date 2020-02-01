@@ -13,9 +13,9 @@ class Initial
     {
         $login_cookie = $_COOKIE['login'];
         if(isset($login_cookie)) {
-            header("Location:app/Bundle/View/html/home.html");
+            header("Location:app/Bundle/View/html/home.php");
         } else{
-            header("Location:app/Bundle/View/html/login.html");
+            header("Location:app/Bundle/View/html/login.php");
         }
     }
 }
