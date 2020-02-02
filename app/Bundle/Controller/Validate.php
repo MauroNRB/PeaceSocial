@@ -10,11 +10,11 @@ class Validate
 {
     public function validadeRegister($login, $email, $password, $arr)
     {
-        if($login == "" || $login == null) {;
+        if(empty($login)) {
             return 'O campo login deve ser preenchido';
-        } else if($email == "" || $email == null) {
+        } else if(empty($email)) {
             return 'O campo e-mail deve ser preenchido';
-        } else  if($password == "" || $password == null) {
+        } else if(empty($password)) {
             return 'O campo Senha deve ser preenchido';
         } else if($arr['username'] == $login) {
             return 'Esse login já existe';

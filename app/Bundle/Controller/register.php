@@ -17,7 +17,7 @@ $userful = new \app\Bundle\Controller\Useful();
 
 $login = isset($_POST['login']) ? $_POST['login'] : null;
 $email = isset($_POST['email']) ? $_POST['email'] : null;
-$password = md5($_POST['password']);
+$password = !empty($_POST['password']) ? md5($_POST['password']) : null;
 
 $queryLogin = "SELECT a.username as username, a.email as email FROM user_social a WHERE username = '$login' OR email = '$email'";
 $arr = $database->arrSelect($queryLogin);
