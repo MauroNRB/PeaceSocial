@@ -2,6 +2,10 @@
 
 namespace app\Bundle\Model\Database;
 
+/**
+ * @author Mauro Ribeiro
+ * @since 2020-01-31
+ */
 class Database
 {
     public function connectDatabase()

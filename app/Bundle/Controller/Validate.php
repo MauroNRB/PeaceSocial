@@ -3,9 +3,8 @@
 namespace app\Bundle\Controller;
 
 /**
- * Class Validate
  * @author Mauro Ribeiro
- * @since 2020-02-01
+ * @since 2020-01-31
  */
 class Validate
 {

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @author Mauro Ribeiro
+ * @since 2020-02-01
+ */
+
 require '../Model/Database/Database.php';
 $database = new \app\Bundle\Model\Database\Database();
 

@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * @author Mauro Ribeiro
+ * @since 2020-01-31
+ */
+
 echo '
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
