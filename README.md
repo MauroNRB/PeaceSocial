@@ -5,7 +5,6 @@ Rede social para ajudar um ao outro
 
 create table user_social
 (
-
 	id integer not null AUTO_INCREMENT,
 	username VARCHAR(75) not null,
 	email VARCHAR(100) not NULL,
@@ -13,5 +12,4 @@ create table user_social
 	ban TINYINT(1),
 	adm TINYINT(1),
 	primary key (id)
-
 );
