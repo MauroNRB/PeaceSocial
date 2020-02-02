@@ -10,17 +10,14 @@ require 'Useful.php';
 $userful = new \app\Bundle\Controller\Useful();
 
 
-$login = $_POST['login'];
-$email = $_POST['email'];
+$login = isset($_POST['login']) ? $_POST['login'] : null;
+$email = isset($_POST['email']) ? $_POST['email'] : null;
 $password = md5($_POST['password']);
 
-$queryUsername = "SELECT a.username FROM user_social a WHERE a. username = '$login'";
-$arrLogin = $database->arrSelect($queryUsername);
+$queryLogin = "SELECT a.username as username, a.email as email FROM user_social a WHERE username = '$login' OR email = '$email'";
+$arr = $database->arrSelect($queryLogin);
 
-$queryEmail = "SELECT a.email FROM user_social a WHERE a.email = '$email'";
-$arrEmail = $database->arrSelect($queryUsername);
-
-$msgValidadade = $validate->validadeRegister($login, $email, $password, $arrLogin, $arrEmail);
+$msgValidadade = $validate->validadeRegister($login, $email, $password, $arr);
 
 if(!empty($msgValidadade)) {
     $msg = $msgValidadade;

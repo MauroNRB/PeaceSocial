@@ -9,7 +9,7 @@ namespace app\Bundle\Controller;
  */
 class Validate
 {
-    public function validadeRegister($login, $email, $password, $arrLogin, $arrEmail)
+    public function validadeRegister($login, $email, $password, $arr)
     {
         if($login == "" || $login == null) {;
             return 'O campo login deve ser preenchido';
@@ -17,9 +17,9 @@ class Validate
             return 'O campo e-mail deve ser preenchido';
         } else  if($password == "" || $password == null) {
             return 'O campo Senha deve ser preenchido';
-        } else if($arrLogin == $login) {
+        } else if($arr['username'] == $login) {
             return 'Esse login já existe';
-        }  else if ($arrEmail == $email) {
+        }  else if ($arr['email'] == $email) {
             return 'Esse e-mail já está cadastrado';
         } else {
             return null;
