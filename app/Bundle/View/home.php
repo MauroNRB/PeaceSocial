@@ -5,7 +5,7 @@
  * @since 2020-01-31
  */
 
-include('base/isLogin.php');
+include('base/isLogged.php');
 
 ?>
 

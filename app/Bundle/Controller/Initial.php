@@ -22,7 +22,7 @@ class Initial
         }
     }
 
-    public function isLoginController()
+    public function isLoggedController()
     {
         session_start();
 
@@ -34,7 +34,7 @@ class Initial
         }
     }
 
-    public function isLoginLRController()
+    public function isLoggedLoginRegisterController()
     {
         session_start();
 
