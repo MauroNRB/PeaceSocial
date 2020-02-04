@@ -10,7 +10,7 @@ class Useful
 {
     public function alert($msg, $route)
     {
-        echo "
+        $html =  "
             <head>
                 <link rel='stylesheet/less' type='text/css' href='../View/css/style.less' />
                 <script src='//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js' ></script>
@@ -25,5 +25,12 @@ class Useful
                 }, 1000);
             </script>
         ";
+
+        $this->constructorHTML($html);
+    }
+
+    public function constructorHTML($html)
+    {
+        echo $html;
     }
 }

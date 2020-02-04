@@ -11,7 +11,11 @@ include('base/isLoggedLoginRegister.php');
 <html lang="en">
 
 <head>
-    <?php include('base/header.php') ?>
+    <?php
+        require 'base/Header.php';
+        $login = new \app\Bundle\View\base\Header();
+        $login->constructorHeadHTML();
+    ?>
     <title>Login - Peace Social</title>
 </head>
 

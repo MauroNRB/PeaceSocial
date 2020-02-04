@@ -46,10 +46,10 @@ class Initial
         }
     }
 
-    public function logOut()
+    public function logout()
     {
         session_start();
         session_destroy();
-        header("Location:./../login.php");
+        header("Location:/PeaceSocial/app/Bundle/View/login.php");
     }
 }

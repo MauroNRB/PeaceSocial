@@ -5,6 +5,6 @@
  * @since 2020-02-03
  */
 
-require '../Controller/Initial.php';
-$initial = new \app\Bundle\Controller\Initial();
-$initial->isLoggedLoginRegisterController();
+require 'Login.php';
+$login = new \app\Bundle\View\base\Login();
+$login->isLoggedLoginRegister();
