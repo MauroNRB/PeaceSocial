@@ -31,9 +31,9 @@ $login->isLogged();
                 <div class="row">
                     <div class="col-lg-9 col-sm-12 col-xs-12 col-md-12 first-colum">
                         <br>
-                        <form method="post" action="base/logout.php">
+                        <form method="post" action="../Controller/publication.php">
                             <div class="form-group">
-                                <textarea class="form-control" rows="3"></textarea>
+                                <textarea class="form-control" name="text-publication" rows="3"></textarea>
                             </div>
                             <input class="btn btn-primary float-right" type="submit" name="submit-publication" value="Publicar"/>
                         </form>
@@ -44,7 +44,7 @@ $login->isLogged();
                             <div class="form-group">
                                 <textarea class="form-control" rows="3"></textarea>
                             </div>
-                            <input class="btn btn-primary float-right" type="submit" name="submit-publication" value="Publicar"/>
+                            <input class="btn btn-primary float-right" type="submit" value="Publicar"/>
                         </form>
                     </div>
                 </div>

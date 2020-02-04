@@ -24,4 +24,12 @@ class Validate
             return null;
         }
     }
+    public function validadePublication($arr)
+    {
+        if($arr['ban'] == 1) {
+            return 'Você não pode publicar, pois violou os termos de contrato';
+        } else {
+            return null;
+        }
+    }
 }
