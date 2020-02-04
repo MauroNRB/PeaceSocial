@@ -5,6 +5,7 @@
  * @since 2020-01-31
  */
 
+include('base/isLoginLR.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

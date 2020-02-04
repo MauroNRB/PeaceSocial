@@ -10,8 +10,10 @@ class Initial
 {
     public function indexController()
     {
-        $loginSession = $_SESSION['social-login'];
-        $passwordSession = $_SESSION['social-password'];
+        session_start();
+
+        $loginSession = isset($_SESSION['social-login']) ? $_SESSION['social-login'] : null;
+        $passwordSession = isset($_SESSION['social-password']) ? $_SESSION['social-password'] : null;
 
         if(isset($loginSession) && isset($passwordSession)) {
             header("Location:/PeaceSocial/app/Bundle/View/home.php");
@@ -22,18 +24,32 @@ class Initial
 
     public function isLoginController()
     {
+        session_start();
+
+        $loginSession = isset($_SESSION['social-login']) ? $_SESSION['social-login'] : null;
+        $passwordSession = isset($_SESSION['social-password']) ? $_SESSION['social-password'] : null;
+
+        if(!isset($loginSession) && !isset($passwordSession)) {
+            header("Location:./login.php");
+        }
+    }
+
+    public function isLoginLRController()
+    {
+        session_start();
+
         $loginSession = isset($_SESSION['social-login']) ? $_SESSION['social-login'] : null;
         $passwordSession = isset($_SESSION['social-password']) ? $_SESSION['social-password'] : null;
 
         if(isset($loginSession) && isset($passwordSession)) {
-            header("Location:./login.php");
+            header("Location:/PeaceSocial/app/Bundle/View/home.php");
         }
     }
 
     public function logOut()
     {
-        session_unset();
-        session_abort();
+        session_start();
+        session_destroy();
         header("Location:./../login.php");
     }
 }
