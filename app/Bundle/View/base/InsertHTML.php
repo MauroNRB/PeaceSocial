@@ -4,6 +4,9 @@ namespace app\Bundle\View\base;
 
 require '../Controller/Useful.php';
 
+require '../Model/Database/Database.php';
+$database = new \app\Bundle\Model\Database\Database();
+
 /**
  * @author Mauro Ribeiro
  * @since 2020-02-03
@@ -28,7 +31,7 @@ class InsertHTML
             <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
         ';
 
-        $userful = $this->constructor();
+        $userful = $this->constructorUsefull();
         $userful->constructorHTML($html);
     }
 
@@ -52,8 +55,30 @@ class InsertHTML
             </nav>
         ';
 
-        $userful = $this->constructor();
+        $userful = $this->constructorUsefull();
         $userful->constructorHTML($html);
+    }
+
+    public function constructorMessageHTML()
+    {
+        $queryLogin = "SELECT a.id_message as id, a.message as message FROM message_social a";
+
+        $database = $this->constructorDatabase();
+        $arr = $database->arrSelect($queryLogin);
+
+        $arrGroup = $database->arrGroup($arr);
+
+        foreach ($arrGroup as $message) {
+            $html = "
+                <br>
+                <div class='col-lg-9 col-sm-12 col-xs-12 col-md-12 first-colum'>
+                    $message
+                </div>
+            ";
+
+            $userful = $this->constructorUsefull();
+            $userful->constructorHTML($html);
+        }
     }
 
     public function constructorFooterHTML()
@@ -72,13 +97,19 @@ class InsertHTML
             </script>
         ";
 
-        $userful = $this->constructor();
+        $userful = $this->constructorUsefull();
         $userful->constructorHTML($html);
     }
 
-    public function constructor()
+    public function constructorUsefull()
     {
         $userful = new \app\Bundle\Controller\Useful();
         return $userful;
+    }
+
+    public function constructorDatabase()
+    {
+        $database = new \app\Bundle\Model\Database\Database();
+        return $database;
     }
 }

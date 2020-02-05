@@ -40,13 +40,13 @@ $login->isLogged();
                     </div>
                     <div class="col-lg-3 d-none d-sm-none d-md-none d-lg-block secund-colum">
                         <br>
-                        <form method="post" action="base/logout.php">
-                            <div class="form-group">
-                                <textarea class="form-control" rows="3"></textarea>
-                            </div>
-                            <input class="btn btn-primary float-right" type="submit" value="Publicar"/>
-                        </form>
+
                     </div>
+                    <br>
+                    <?php
+                        $menu = new \app\Bundle\View\base\InsertHTML();
+                        $menu->constructorMessageHTML();
+                    ?>
                 </div>
             </div>
         </div>

@@ -31,4 +31,13 @@ class Database
 
         return $arrQuery;
     }
+
+    public function arrGroup($queryBuilder)
+    {
+        $arr = array();
+        foreach ($queryBuilder as $row) {
+            $arr[$queryBuilder['id']] = $queryBuilder['message'];
+        }
+        return $arr;
+    }
 }
