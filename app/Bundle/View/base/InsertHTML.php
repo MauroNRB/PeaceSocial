@@ -71,12 +71,12 @@ class InsertHTML
                 $arrGroup = $database->arrGroup($aux);
                 foreach ($arrGroup as $message) {
                     $count ++;
-                    if($count === 10) {
+                    if($count === 11) {
                         $count = 1;
                     }
                     if($count === 1 || $count === 7) {
                         $html = "
-                            <div class='col-post'>
+                            <div class='col-post color-1'>
                                 <div class='publication'>
                                     $message
                                 </div>
@@ -84,7 +84,7 @@ class InsertHTML
                         ";
                     } else if($count === 2 || $count === 6) {
                         $html = "  
-                            <div class='col-post'>
+                            <div class='col-post color-2'>
                                <div class='publication'>
                                     $message
                                 </div>
@@ -92,7 +92,7 @@ class InsertHTML
                         ";
                     } else if($count === 3 || $count === 9) {
                         $html = "
-                            <div class='col-post'>
+                            <div class='col-post color-3'>
                                 <div class='publication'>
                                     $message
                                 </div>
@@ -100,7 +100,7 @@ class InsertHTML
                         ";
                     } else if($count === 4 || $count === 8) {
                         $html = "
-                            <div class='col-post'>
+                            <div class='col-post color-4'>
                                 <div class='publication'>
                                     $message
                                 </div>
@@ -108,8 +108,8 @@ class InsertHTML
                         ";
                     } else {
                         $html = "
-                            <div class='col-post'>
-                                <div class='publication'>
+                            <div class='col-post color-5'>
+                                <div class='publication'>   
                                     $message
                                 </div>
                             </div>
