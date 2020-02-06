@@ -43,10 +43,16 @@ $login->isLogged();
 
                     </div>
                     <br>
-                    <?php
-                        $menu = new \app\Bundle\View\base\InsertHTML();
-                        $menu->constructorMessageHTML();
-                    ?>
+                    <div class="col-lg-9 col-sm-12 col-xs-12 col-md-12">
+                        <div class="container">
+                            <div class="row">
+                                <?php
+                                    $menu = new \app\Bundle\View\base\InsertHTML();
+                                    $menu->constructorMessageHTML();
+                                ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

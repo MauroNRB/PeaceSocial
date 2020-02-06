@@ -61,21 +61,61 @@ class InsertHTML
 
     public function constructorMessageHTML()
     {
-        $query = "SELECT a.id_message as id, a.message as message FROM message_social a";
+        $query = "SELECT a.id_message as id, a.message as message FROM message_social a ORDER BY a.id_message DESC";
 
         $database = $this->constructorDatabase();
         $result = $database->queryBuilder($query);
 
         if(!empty($result)) {
+            $count = 0;
             while($aux = mysqli_fetch_assoc($result)) {
                 $arrGroup = $database->arrGroup($aux);
                 foreach ($arrGroup as $message) {
-                    $html = "
-                        <br>
-                        <div class='col-lg-9 col-sm-12 col-xs-12 col-md-12 first-colum'>
-                            $message
-                        </div>
-                    ";
+                    $count ++;
+                    if($count === 10) {
+                        $count = 1;
+                    }
+                    if($count === 1 || $count === 7) {
+                        $html = "
+                            <div class='col-lg-4 col-sm-4 col-xs-4 col-md-4'>
+                                <div class='publication'>
+                                    $message
+                                </div>
+                            </div>
+                        ";
+                    } else if($count === 2 || $count === 6) {
+                        $html = "  
+                            <div class='col-lg-8 col-sm-8 col-xs-8 col-md-8'>
+                               <div class='publication'>
+                                    $message
+                                </div>
+                            </div>
+                        ";
+                    } else if($count === 3 || $count === 9) {
+                        $html = "
+                            <div class='col-lg-3 col-sm-3 col-xs-3 col-md-3'>
+                                <div class='publication'>
+                                    $message
+                                </div>
+                            </div>
+                        ";
+                    } else if($count === 4 || $count === 8) {
+                        $html = "
+                            <div class='col-lg-9 col-sm-9 col-xs-9 col-md-9'>
+                                <div class='publication'>
+                                    $message
+                                </div>
+                            </div>
+                        ";
+                    } else {
+                        $html = "
+                            <div class='col-lg-12 col-sm-12 col-xs-12 col-md-12'>
+                                <div class='publication'>
+                                    $message
+                                </div>
+                            </div>
+                        ";
+                    }
                     $userful = $this->constructorUsefull();
                     $userful->constructorHTML($html);
                 }
