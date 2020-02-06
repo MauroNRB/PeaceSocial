@@ -61,23 +61,25 @@ class InsertHTML
 
     public function constructorMessageHTML()
     {
-        $queryLogin = "SELECT a.id_message as id, a.message as message FROM message_social a";
+        $query = "SELECT a.id_message as id, a.message as message FROM message_social a";
 
         $database = $this->constructorDatabase();
-        $arr = $database->arrSelect($queryLogin);
+        $result = $database->queryBuilder($query);
 
-        $arrGroup = $database->arrGroup($arr);
-
-        foreach ($arrGroup as $message) {
-            $html = "
-                <br>
-                <div class='col-lg-9 col-sm-12 col-xs-12 col-md-12 first-colum'>
-                    $message
-                </div>
-            ";
-
-            $userful = $this->constructorUsefull();
-            $userful->constructorHTML($html);
+        if(!empty($result)) {
+            while($aux = mysqli_fetch_assoc($result)) {
+                $arrGroup = $database->arrGroup($aux);
+                foreach ($arrGroup as $message) {
+                    $html = "
+                        <br>
+                        <div class='col-lg-9 col-sm-12 col-xs-12 col-md-12 first-colum'>
+                            $message
+                        </div>
+                    ";
+                    $userful = $this->constructorUsefull();
+                    $userful->constructorHTML($html);
+                }
+            }
         }
     }
 
