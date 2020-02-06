@@ -24,7 +24,6 @@ class InsertHTML
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
             <link type="text/css" rel="stylesheet" href="css/menu.css" />
             <link type="text/css" rel="stylesheet" href="css/mmenu.css" />
             <link rel="stylesheet/less" type="text/css" href="css/style.less" />
@@ -77,7 +76,7 @@ class InsertHTML
                     }
                     if($count === 1 || $count === 7) {
                         $html = "
-                            <div class='col-lg-4 col-sm-4 col-xs-4 col-md-4'>
+                            <div class='col-post'>
                                 <div class='publication'>
                                     $message
                                 </div>
@@ -85,7 +84,7 @@ class InsertHTML
                         ";
                     } else if($count === 2 || $count === 6) {
                         $html = "  
-                            <div class='col-lg-8 col-sm-8 col-xs-8 col-md-8'>
+                            <div class='col-post'>
                                <div class='publication'>
                                     $message
                                 </div>
@@ -93,7 +92,7 @@ class InsertHTML
                         ";
                     } else if($count === 3 || $count === 9) {
                         $html = "
-                            <div class='col-lg-3 col-sm-3 col-xs-3 col-md-3'>
+                            <div class='col-post'>
                                 <div class='publication'>
                                     $message
                                 </div>
@@ -101,7 +100,7 @@ class InsertHTML
                         ";
                     } else if($count === 4 || $count === 8) {
                         $html = "
-                            <div class='col-lg-9 col-sm-9 col-xs-9 col-md-9'>
+                            <div class='col-post'>
                                 <div class='publication'>
                                     $message
                                 </div>
@@ -109,7 +108,7 @@ class InsertHTML
                         ";
                     } else {
                         $html = "
-                            <div class='col-lg-12 col-sm-12 col-xs-12 col-md-12'>
+                            <div class='col-post'>
                                 <div class='publication'>
                                     $message
                                 </div>
