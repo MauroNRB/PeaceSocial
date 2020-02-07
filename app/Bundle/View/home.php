@@ -33,6 +33,9 @@ $login->isLogged();
                         <br>
                         <form method="post" action="../Controller/publication.php">
                             <div class="form-group">
+                                <label for="title-message">Título</label>
+                                <input type="text" class="form-control" name="title-message" placeholder="Título da Publicação">
+                                <label for="text-publication">Message</label>
                                 <textarea class="form-control" name="text-publication" rows="3"></textarea>
                             </div>
                             <input class="btn btn-primary float-right" type="submit" name="submit-publication" value="Publicar"/>

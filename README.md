@@ -19,6 +19,7 @@ Rede social para ajudar um ao outro
 		id_message integer not NULL AUTO_INCREMENT,
 		id_user integer not null,
 		message VARCHAR(1500),
+		title VARCHAR(70),
 		primary key (id_message),
 		foreign key (id_user) references user_social (id)
 	);

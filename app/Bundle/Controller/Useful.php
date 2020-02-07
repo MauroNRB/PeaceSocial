@@ -33,4 +33,14 @@ class Useful
     {
         echo $html;
     }
+
+    public function arrGroupPublications($queryBuilder)
+    {
+        $arr = array();
+        foreach ($queryBuilder as $row) {
+            $arr[$queryBuilder['id']] = $queryBuilder;
+        }
+
+        return $arr;
+    }
 }

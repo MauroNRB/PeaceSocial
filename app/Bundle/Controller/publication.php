@@ -16,6 +16,7 @@ $userful = new \app\Bundle\Controller\Useful();
 
 
 $text = isset($_POST['text-publication']) ? $_POST['text-publication'] : null;
+$title = isset($_POST['title-message']) ? $_POST['title-message'] : null;
 
 session_start();
 $loginSession = isset($_SESSION['social-login']) ? $_SESSION['social-login'] : null;
@@ -34,7 +35,7 @@ if(!empty($msgValidadade)) {
 } else {
     $id = $arr['id'];
 
-    $query = "INSERT INTO message_social (id_user, message) VALUES ('$id', '$text')";
+    $query = "INSERT INTO message_social (id_user, message, title) VALUES ('$id', '$text', '$title')";
     $insert = $database->queryBuilder($query);
 
     $route = '/PeaceSocial/app/Bundle/View/home.php';

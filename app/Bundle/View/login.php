@@ -21,7 +21,7 @@ include('base/isLoggedLoginRegister.php');
     <body class="login-register">
         <div class="loginbox">
             <img src="img/avatar.png" class="avatar">
-            <h1>Login</h1>
+            <h2>Login</h2>
             <form method="POST" action="../Controller/login.php">
                 <p>Login</p>
                 <input type="text" name="login" id="login" placeholder="Login/E-mail">
