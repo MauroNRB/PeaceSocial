@@ -1,0 +1,4 @@
+// Ban for user
+
+UPDATE user_social a SET a.ban = 0
+WHERE a.id = 1;

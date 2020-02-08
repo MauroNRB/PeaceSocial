@@ -22,9 +22,9 @@ class InsertHTML
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
             <!--link rel="shortcut icon" href="img/ico.ico" type="image/x-icon">-->
-            <link rel="stylesheet" href="compiled//font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <script src="compiled/jquery.min.js"></script >
-            <link rel="stylesheet" href="compiled/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <link rel="stylesheet" href="compiled/bootstrap.min.css" crossorigin="anonymous">
             <link type="text/css" rel="stylesheet" href="css/mmenu.css" />
             <link rel="stylesheet/less" type="text/css" href="css/style.less" />
             <script src="compiled/less.min.js"></script>
@@ -40,7 +40,17 @@ class InsertHTML
         $html = '
             <div class="header">
                 <a href="#menu"><span></span></a>
-                Peace Social
+                <div class="float-left title-social">
+                    <h1>Peace Social</h1>
+                </div>
+                <div class="form-search">
+                    <form class="form-inline">
+                        <div class="input-group">
+                            <input type="text" class="form-control search-input" name="search-title" placeholder="Buscar Título">
+                            <button type="submit" class="btn fa fa-search"></button>
+                        </div>
+                    </form>
+                </div>
             </div>
             <nav id="menu">
                 <ul>
@@ -62,7 +72,20 @@ class InsertHTML
     {
         $userful = $this->constructorUsefull();
 
-        $query = "SELECT a.id_message as id, a.message as message, a.title as title FROM message_social a ORDER BY a.id_message DESC";
+        $query = "
+            SELECT 
+                a.id_message as id, a.message as message, a.title as title, a.id_user
+            FROM 
+                message_social a
+            INNER JOIN 
+                user_social b
+            ON 
+                a.id_user = b.id
+            WHERE 
+                b.ban = 0
+            ORDER BY 
+                a.id_message DESC;
+        ";
 
         $database = $this->constructorDatabase();
         $result = $database->queryBuilder($query);
@@ -72,7 +95,12 @@ class InsertHTML
             while($aux = mysqli_fetch_assoc($result)) {
                 $arrGroup = $userful->arrGroupPublications($aux);
                 foreach ($arrGroup as $publications) {
-                    $arrColor = array('color-1', 'color-2', 'color-3', 'color-4', 'color-5', 'color-6', 'color-7', 'color-8', 'color-9');
+                    $arrColor = array(
+                        'color-1', 'color-2', 'color-3',
+                        'color-4', 'color-5', 'color-6',
+                        'color-7', 'color-8', 'color-9',
+                        'color-10', 'color-11', 'color-12'
+                    );
 
                     $color = $arrColor[array_rand($arrColor)];
                     $count ++;

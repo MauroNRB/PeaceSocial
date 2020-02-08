@@ -32,6 +32,12 @@ if(!empty($msgValidadade)) {
 
     $userful->alert($msg, $route);
     die();
+} else if(empty($text)) {
+    $msg = 'Ops! É preciso preencher o campo de texto para publicar sua mensagem';
+    $route = '/PeaceSocial/app/Bundle/View/home.php';
+
+    $userful->alert($msg, $route);
+    die();
 } else {
     $id = $arr['id'];
 

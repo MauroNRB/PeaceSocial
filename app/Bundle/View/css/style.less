@@ -34,25 +34,24 @@ nav:not(.mm-menu) {
   display: none;
 }
 
-.header,
-.content,
-.footer {
-  text-align: center;
-}
-.header,
-.footer {
+.header {
   background: #4bb5ef;
   font-size: 16px;
   font-weight: bold;
   color: #fff;
   line-height: 44px;
-
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  width: 100%;
   height: 44px;
-  padding: 0 50px;
+  padding: 10px 0px 9px 50px;
+  .title-social {
+    margin-right: 15px;
+  }
+  .form-search {
+    margin-top: -8px;
+  }
 }
+
 .header.fixed {
   position: fixed;
   top: 0;
@@ -205,6 +204,11 @@ body.login-register {
       padding: 10px 10px 10px 10px;
       border-radius: 7px;
   }
+  .header {
+    h1 {
+      font-size: 20px;
+    }
+  }
 }
 .col-post {
   margin-right: 14px;
@@ -254,5 +258,31 @@ body.login-register {
     .publication {
       background-color: #669999;
     }
+  }
+  &.color-10 {
+    .publication {
+      background-color: #00cc66;
+    }
+  }
+  &.color-11 {
+    .publication {
+      background-color: #ccff33;
+    }
+  }
+  &.color-12 {
+    .publication {
+      background-color: #336699;
+    }
+  }
+}
+@media screen and (max-width: 370px) {
+  .col-post {
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .col-post {
+    max-width: 250px;
   }
 }
