@@ -1,9 +1,9 @@
 <?php
 namespace app\Bundle\Controller\SendEmail;
 
-require '../../Libraries/phpmailer/PHPMailerAutoload.php';
+require '../Libraries/phpmailer/PHPMailerAutoload.php';
 
-require '../Useful.php';
+require 'Useful.php';
 
 class SendGmail
 {

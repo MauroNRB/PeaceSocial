@@ -11,7 +11,7 @@ $database = new \app\Bundle\Model\Database\Database();
 require 'Validate.php';
 $validate = new \app\Bundle\Controller\Validate();
 
-require 'Useful.php';
+include 'Useful.php';
 $userful = new \app\Bundle\Controller\Useful();
 
 require 'SendEmail/SendGmail.php';

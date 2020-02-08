@@ -13,7 +13,7 @@ class Useful
         $html =  "
             <head>
                 <link rel='stylesheet/less' type='text/css' href='../View/css/style.less' />
-                <script src='//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js' ></script>
+                <script src='../View/compiled/less.min.js'></script>
             </head>
             <body id='load-msg'>
                 <div class='loader'></div>
