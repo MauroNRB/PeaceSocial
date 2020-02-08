@@ -8,7 +8,7 @@ Rede social para ajudar um ao outro
 		id integer not null AUTO_INCREMENT,
 		username VARCHAR(75) not null,
 		email VARCHAR(100) not NULL,
-		password VARCHAR(40) not null,
+		password CHAR(32) not null,
 		ban TINYINT(1),
 		adm TINYINT(1),
 		primary key (id)

@@ -1,17 +1,15 @@
 <?php
 namespace app\Bundle\Controller\SendEmail;
 
-require '../Useful.php';
-
 require '../../Libraries/phpmailer/PHPMailerAutoload.php';
 
 class SendEmail
 {
     public function send($addressEmail, $addressUsername, $title, $msg, $routerOrigin, $routerAfter)
     {
-        $userful = new \app\Bundle\Controller\Useful();
+        $userful = $this->constructorUsefull();
 
-        $mail = new PHPMailer;
+        $mail = new \PHPMailer();
         try {
             $mail->SetLanguage('br'); // Traduzir para pt-BR
 
@@ -27,11 +25,11 @@ class SendEmail
             ];
 
             $mail->Host = 'smtp.gmail.com'; // SMTP Server
-            $mail->Username = 'email@gmail.com'; // Usuário SMTP
-            $mail->Password = 'senha'; // Senha do usuário
+            $mail->Username = 'robodazueria@gmail.com'; // Usuário SMTP
+            $mail->Password = 'Uu123456'; // Senha do usuário
             $mail->Port = 465; // Porta do SMTP
 
-            $mail->setFrom('email@gmail.com', 'Mauro'); // Email e nome de quem enviara o e-mail
+            $mail->setFrom('robodazueria@gmail.com', 'Mauro'); // Email e nome de quem enviara o e-mail
             $mail->addReplyTo($addressEmail, $addressUsername); // E-mail e nome de quem responderá o e-mail
 
             $mail->addAddress($addressEmail, $addressUsername); // Email e nome do destino
@@ -46,14 +44,20 @@ class SendEmail
                 $msgResult = 'Mensagem enviada com sucesso!';
                 $userful->alert($msgResult, $routerAfter);
             else:
-                $msgResult = 'Erro ao enviar mensagem!';
+                $msgResult = 'Erro ao enviar mensagem! ' . $msg;
                 $userful->alert($msgResult, $routerOrigin);
             endif;
         } catch(Exception $e){
             // echo 'Erro ao enviar mensagem!';
             // echo 'Erro: '.$mail->ErrorInfo;
-            $msgResult = 'Erro ao enviar mensagem!';
+            $msgResult = 'Erro ao enviar mensagem! ' . $msg;
             $userful->alert($msgResult, $routerOrigin);
         }
+    }
+
+    public function constructorUsefull()
+    {
+        $userful = new \app\Bundle\Controller\Useful();
+        return $userful;
     }
 }

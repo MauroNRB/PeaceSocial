@@ -27,7 +27,7 @@ include('base/isLoggedLoginRegister.php');
             <form method="POST" action="../Controller/updatePassword.php">
                 <p>E-mail</p>
                 <input type="email" name="email" id="email" placeholder="E-mail">
-                <input type="submit" value="Cadastrar" id="submit" name="submit">
+                <input type="submit" value="Alterar" id="submit" name="submit">
             </form>
             <a href="login.php">Logar</a>
         </div>
