@@ -2,3 +2,8 @@
 
 UPDATE user_social a SET a.ban = 0
 WHERE a.id = 1;
+
+// Update password
+
+UPDATE user_social a SET a.password = 0
+WHERE a.email = 1;

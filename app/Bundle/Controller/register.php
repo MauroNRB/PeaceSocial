@@ -22,7 +22,7 @@ $password = !empty($_POST['password']) ? md5($_POST['password']) : null;
 $queryLogin = "SELECT a.username as username, a.email as email FROM user_social a WHERE username = '$login' OR email = '$email'";
 $arr = $database->arrSelect($queryLogin);
 
-$msgValidadade = $validate->validadeRegister($login, $email, $password, $arr);
+$msgValidadade = $validate->validadeRegister($login, $email, $_POST['password'], $arr);
 
 if(!empty($msgValidadade)) {
     $msg = $msgValidadade;

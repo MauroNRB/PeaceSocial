@@ -43,4 +43,40 @@ class Useful
 
         return $arr;
     }
+
+    /**
+     * @link https://www.devmedia.com.br/gerando-senhas-seguras-com-php/17497
+     */
+    public function passwordGenerator($length, $uppercase, $lowercase, $number, $symbols)
+    {
+        $password = '';
+
+        $ma = "ABCDEFGHIJKLMNOPQRSTUVYXWZ"; // $ma contem as letras maiúsculas
+        $mi = "abcdefghijklmnopqrstuvyxwz"; // $mi contem as letras minusculas
+        $nu = "0123456789"; // $nu contem os números
+        $si = "!@#$%¨&*()_+="; // $si contem os símbolos
+
+        if ($uppercase){
+            // se $maiusculas for "true", a variável $ma é embaralhada e adicionada para a variável $senha
+            $password .= str_shuffle($ma);
+        }
+
+        if ($lowercase){
+            // se $minusculas for "true", a variável $mi é embaralhada e adicionada para a variável $senha
+            $password .= str_shuffle($mi);
+        }
+
+        if ($number){
+            // se $numeros for "true", a variável $nu é embaralhada e adicionada para a variável $senha
+            $password .= str_shuffle($nu);
+        }
+
+        if ($symbols){
+            // se $simbolos for "true", a variável $si é embaralhada e adicionada para a variável $senha
+            $password .= str_shuffle($si);
+        }
+
+        // retorna a senha embaralhada com "str_shuffle" com o tamanho definido pela variável $tamanho
+        return substr(str_shuffle($password),0,$length);
+    }
 }

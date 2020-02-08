@@ -31,6 +31,7 @@ include('base/isLoggedLoginRegister.php');
                 <br>
             </form>
             <a href="register.php">Cadastra-se</a>
+            <a href="updatePassword.php">Esqueci Minha Senha</a>
         </div>
     </body>
 
