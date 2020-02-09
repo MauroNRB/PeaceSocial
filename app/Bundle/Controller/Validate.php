@@ -10,15 +10,11 @@ class Validate
 {
     public function validadeRegister($login, $email, $password, $arr)
     {
-        if(empty($login)) {
-            return 'O campo login deve ser preenchido';
-        } else if(empty($email)) {
-            return 'O campo e-mail deve ser preenchido';
-        } else if(empty($password)) {
-            return 'O campo Senha deve ser preenchido';
-        } else if(strlen($password) < 8) {
-            return 'O campo Senha deve ter mais 8 caracteres';
-        } else if($arr['username'] == $login) {
+        $this->validadeEmptyUsername($login);
+        $this->validadeEmptyEmail($email);
+        $this->validadePassword($password);
+
+        if($arr['username'] == $login) {
             return 'Esse login já existe';
         }  else if ($arr['email'] == $email) {
             return 'Esse e-mail já está cadastrado';
@@ -38,10 +34,35 @@ class Validate
 
     public function validadeEmailUpdatePassword($email)
     {
+        $this->validadeEmptyEmail($email);
+        return null;
+    }
+
+    public function validadeEmptyEmail($email)
+    {
         if(empty($email)) {
             return 'O campo e-mail deve ser preenchido';
-        } else {
-            return null;
         }
+    }
+
+    public function validadeEmptyUsername($login)
+    {
+        if(empty($login)) {
+            return 'O campo login deve ser preenchido';
+        }
+    }
+
+    public function validadePassword($password) {
+        if(empty($password)) {
+            return 'O campo Senha deve ser preenchido';
+        } else if(strlen($password) < 8) {
+            return 'O campo Senha deve ter mais 8 caracteres';
+        }
+    }
+
+    public function validadeUpdateAccount($password)
+    {
+        $this->validadePassword($password);
+        return null;
     }
 }

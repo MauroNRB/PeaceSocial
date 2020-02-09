@@ -57,7 +57,7 @@ class InsertHTML
                     <li><a href="home.php">Página Inicial</a></li>
                     <li><span>Cadastro</span>
                         <ul>
-                            <li><a href="">Alterar Informações</a></li>
+                            <li><a href="account.php">Alterar Informações</a></li>
                         </ul>
                     </li>
                     <li><a href="base/logout.php" name="logout">Deslogar</a></li>
