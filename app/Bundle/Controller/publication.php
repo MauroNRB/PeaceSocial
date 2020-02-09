@@ -28,13 +28,13 @@ $msgValidadade = $validate->validadePublication($arr);
 
 if(!empty($msgValidadade)) {
     $msg = $msgValidadade;
-    $route = '/PeaceSocial/app/Bundle/View/home.php';
+    $route = '/app/Bundle/View/home.php';
 
     $userful->alert($msg, $route);
     die();
 } else if(empty($text)) {
     $msg = 'Ops! É preciso preencher o campo de texto para publicar sua mensagem';
-    $route = '/PeaceSocial/app/Bundle/View/home.php';
+    $route = '/app/Bundle/View/home.php';
 
     $userful->alert($msg, $route);
     die();
@@ -44,7 +44,7 @@ if(!empty($msgValidadade)) {
     $query = "INSERT INTO message_social (id_user, message, title) VALUES ('$id', '$text', '$title')";
     $insert = $database->queryBuilder($query);
 
-    $route = '/PeaceSocial/app/Bundle/View/home.php';
+    $route = '/app/Bundle/View/home.php';
 
     if($insert) {
         $msg = 'Foi públicado sua messagem';

@@ -16,9 +16,9 @@ class Initial
         $passwordSession = isset($_SESSION['social-password']) ? $_SESSION['social-password'] : null;
 
         if(isset($loginSession) && isset($passwordSession)) {
-            header("Location:/PeaceSocial/app/Bundle/View/home.php");
+            header("Location:/app/Bundle/View/home.php");
         } else {
-            header("Location:/PeaceSocial/app/Bundle/View/login.php");
+            header("Location:/app/Bundle/View/login.php");
         }
     }
 
@@ -42,7 +42,7 @@ class Initial
         $passwordSession = isset($_SESSION['social-password']) ? $_SESSION['social-password'] : null;
 
         if(isset($loginSession) && isset($passwordSession)) {
-            header("Location:/PeaceSocial/app/Bundle/View/home.php");
+            header("Location:/app/Bundle/View/home.php");
         }
     }
 
@@ -50,6 +50,6 @@ class Initial
     {
         session_start();
         session_destroy();
-        header("Location:/PeaceSocial/app/Bundle/View/login.php");
+        header("Location:/app/Bundle/View/login.php");
     }
 }
