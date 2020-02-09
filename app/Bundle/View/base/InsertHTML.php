@@ -44,7 +44,7 @@ class InsertHTML
                     <h1>Peace Social</h1>
                 </div>
                 <div class="form-search">
-                    <form class="form-inline">
+                    <form class="form-inline" method="GET" action="base/search.php">
                         <div class="input-group">
                             <input type="text" class="form-control search-input" name="search-title" placeholder="Buscar Título">
                             <button type="submit" class="btn fa fa-search"></button>
@@ -54,7 +54,7 @@ class InsertHTML
             </div>
             <nav id="menu">
                 <ul>
-                    <li><a href="">Página Inicial</a></li>
+                    <li><a href="home.php">Página Inicial</a></li>
                     <li><span>Cadastro</span>
                         <ul>
                             <li><a href="">Alterar Informações</a></li>
@@ -68,27 +68,9 @@ class InsertHTML
         $userful->constructorHTML($html);
     }
 
-    public function constructorMessageHTML()
+    public function constructorMessageHTML($result)
     {
         $userful = $this->constructorUsefull();
-
-        $query = "
-            SELECT 
-                a.id_message as id, a.message as message, a.title as title, a.id_user
-            FROM 
-                message_social a
-            INNER JOIN 
-                user_social b
-            ON 
-                a.id_user = b.id
-            WHERE 
-                b.ban = 0
-            ORDER BY 
-                a.id_message DESC;
-        ";
-
-        $database = $this->constructorDatabase();
-        $result = $database->queryBuilder($query);
 
         if(!empty($result)) {
             $count = 0;
@@ -126,6 +108,66 @@ class InsertHTML
                     $userful->constructorHTML($html);
                 }
             }
+        }
+    }
+
+    public function queryMessageBase()
+    {
+        $query = "
+            SELECT 
+                a.id_message as id, a.message as message, a.title as title, a.id_user
+            FROM 
+                message_social a
+            INNER JOIN 
+                user_social b
+            ON 
+                a.id_user = b.id
+            WHERE 
+                b.ban = 0
+            ORDER BY 
+                a.id_message DESC;
+        ";
+
+        $database = $this->constructorDatabase();
+        $result = $database->queryBuilder($query);
+
+        if(!empty($result)) {
+            $this->constructorMessageHTML($result);
+        }
+    }
+
+    public function queryMessageSearch()
+    {
+        $search = $_SESSION['search-title'] ?? null;
+
+        $result = '';
+
+        if(!empty($search)) {
+            $query = "
+                SELECT 
+                    a.id_message as id, a.message as message, a.title as title, a.id_user
+                FROM 
+                    message_social a
+                INNER JOIN 
+                    user_social b
+                ON 
+                    a.id_user = b.id
+                WHERE 
+                    b.ban = 0
+                AND
+                    a.title LIKE '%$search%'
+                ORDER BY 
+                    a.id_message DESC;
+            ";
+
+            $database = $this->constructorDatabase();
+            $result = $database->queryBuilder($query);
+        } else {
+            header("Location:home.php");
+        }
+
+        if(!empty($result)) {
+            $this->constructorMessageHTML($result);
         }
     }
 

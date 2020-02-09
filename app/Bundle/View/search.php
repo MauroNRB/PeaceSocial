@@ -50,8 +50,8 @@ $login->isLogged();
                         <div class="container">
                             <div class="row">
                                 <?php
-                                    $menu = new \app\Bundle\View\base\InsertHTML();
-                                    $menu->queryMessageBase();
+                                    $search = new \app\Bundle\View\base\InsertHTML();
+                                    $search->queryMessageSearch();
                                 ?>
                             </div>
                         </div>
@@ -60,8 +60,8 @@ $login->isLogged();
             </div>
         </div>
         <?php
-             $footer = new \app\Bundle\View\base\InsertHTML();
-             $footer->constructorFooterHTML();
+            $footer = new \app\Bundle\View\base\InsertHTML();
+            $footer->constructorFooterHTML();
         ?>
     </body>
 </html>
