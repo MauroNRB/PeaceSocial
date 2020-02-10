@@ -44,13 +44,13 @@ class SendEmail
                 $msgResult = 'Mensagem enviada com sucesso!';
                 $userful->alert($msgResult, $routerAfter);
             else:
-                $msgResult = 'Erro ao enviar mensagem! ' . $msg;
+                $msgResult = 'Erro ao enviar mensagem!';
                 $userful->alert($msgResult, $routerOrigin);
             endif;
         } catch(Exception $e){
             // echo 'Erro ao enviar mensagem!';
             // echo 'Erro: '.$mail->ErrorInfo;
-            $msgResult = 'Erro ao enviar mensagem! ' . $msg;
+            $msgResult = 'Erro ao enviar mensagem!';
             $userful->alert($msgResult, $routerOrigin);
         }
     }
