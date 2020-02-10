@@ -3,6 +3,14 @@ namespace app\Bundle\Controller\SendEmail;
 
 require '../Libraries/phpmailer/PHPMailerAutoload.php';
 
+/**
+ * Importante: Logue o no Gmail e entre no Link
+ *
+ * https://myaccount.google.com/u/1/security
+ *
+ * Vá em "Acesso a app menos seguro" e Ative a opção
+ */
+
 class SendGmail
 {
     public function send($addressEmail, $addressUsername, $title, $msg, $routerOrigin, $routerAfter)
@@ -19,11 +27,11 @@ class SendGmail
 
             $mail->SMTPSecure = 'tls'; // Acesso com TLS exigido pelo Gmail
             $mail->Host = 'smtp.gmail.com'; // SMTP Server
-            $mail->Username = 'robodazueria@gmail.com'; // Usuário SMTP
+            $mail->Username = 'peace.social.suporte@gmail.com'; // Usuário SMTP
             $mail->Password = 'Uu123456'; // Senha do usuário
             $mail->Port = 587; // Porta do SMTP
 
-            $mail->setFrom('robodazueria@gmail.com', 'Mauro'); // Email e nome de quem enviara o e-mail
+            $mail->setFrom('peace.social.suporte@gmail.com', 'Peace Social Suporte'); // Email e nome de quem enviara o e-mail
             $mail->addReplyTo($addressEmail, $addressUsername); // E-mail e nome de quem responderá o e-mail
 
             $mail->addAddress($addressEmail, $addressUsername); // Email e nome do destino
